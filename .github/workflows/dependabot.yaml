@@ -1,0 +1,14 @@
+name: Dependabot
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 9 * * 1,4' # At 09:30 on Monday and Thursday.
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: carwow/dependabot-lein-runner@main
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
