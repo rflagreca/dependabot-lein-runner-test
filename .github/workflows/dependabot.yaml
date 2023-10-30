@@ -23,7 +23,7 @@ jobs:
         uses: technote-space/workflow-conclusion-action@v3
 
       - name: Send GitHub Action trigger data to Slack workflow
-        if: ${{ steps.get-workflow-info.outputs.conclusion != 'success' }}
+        if: ${{ steps.get-workflow-info.outputs.conclusion == 'success' }}
         id: slack
         uses: slackapi/slack-github-action@v1.24.0
         with:
